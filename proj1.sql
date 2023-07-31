@@ -19,31 +19,45 @@ DROP VIEW IF EXISTS q4v;
 -- Question 0
 CREATE VIEW q0(era)
 AS
-  SELECT 1 -- replace this line
+    SELECT MAX(era)
+    FROM pitching
 ;
 
 -- Question 1i
 CREATE VIEW q1i(namefirst, namelast, birthyear)
 AS
-  SELECT 1, 1, 1 -- replace this line
+    select namefirst,namelast,birthyear
+    FROM people
+    where weight > 300
 ;
 
 -- Question 1ii
 CREATE VIEW q1ii(namefirst, namelast, birthyear)
 AS
-  SELECT 1, 1, 1 -- replace this line
+    SELECT namefirst,namelast,birthyear
+    FROM people
+    WHERE namefirst like '% %'
+    ORDER BY namefirst,namelast
 ;
 
 -- Question 1iii
 CREATE VIEW q1iii(birthyear, avgheight, count)
 AS
-  SELECT 1, 1, 1 -- replace this line
+    SELECT birthyear, AVG(height), COUNT(*)
+    FROM people
+    GROUP BY birthyear
+    ORDER BY birthyear
 ;
 
 -- Question 1iv
 CREATE VIEW q1iv(birthyear, avgheight, count)
 AS
-  SELECT 1, 1, 1 -- replace this line
+    SELECT birthyear, AVG(height), COUNT(*)
+    FROM people
+    GROUP BY birthyear
+    HAVING AVG(height)>70
+    ORDER BY birthyear
+
 ;
 
 -- Question 2i
